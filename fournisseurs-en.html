@@ -11,621 +11,175 @@
     <meta name="x-apple-disable-message-reformatting">
     <!-- Disable auto-scale in iOS 10 Mail entirely -->
     <title></title>
-    <!-- The title tag shows in email notifications, like Android 4.4. -->
-
-
-
-    <!-- CSS Reset : BEGIN -->
-    <style>
-        html,
-        body {
-            margin: 0 auto !important;
-            padding: 0 !important;
-            height: 100% !important;
-            width: 100% !important;
-            background: #f1f1f1;
-        }
-        /* What it does: Stops email clients resizing small text. */
-        
-        * {
-            -ms-text-size-adjust: 100%;
-            -webkit-text-size-adjust: 100%;
-        }
-        /* What it does: Centers email on Android 4.4 */
-        
-        div[style*="margin: 16px 0"] {
-            margin: 0 !important;
-        }
-        /* What it does: Stops Outlook from adding extra spacing to tables. */
-        
-        table,
-        td {
-            mso-table-lspace: 0pt !important;
-            mso-table-rspace: 0pt !important;
-        }
-        /* What it does: Fixes webkit padding issue. */
-        
-        table {
-            border-spacing: 0 !important;
-            border-collapse: collapse !important;
-            table-layout: fixed !important;
-            margin: 0 auto !important;
-        }
-        /* What it does: Uses a better rendering method when resizing images in IE. */
-        
-        img {
-            -ms-interpolation-mode: bicubic;
-        }
-        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
-        
-        a {
-            text-decoration: none;
-        }
-        /* What it does: A work-around for email clients meddling in triggered links. */
-        
-        *[x-apple-data-detectors],
-        /* iOS */
-        
-        .unstyle-auto-detected-links *,
-        .aBn {
-            border-bottom: 0 !important;
-            cursor: default !important;
-            color: inherit !important;
-            text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
-        }
-        /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
-        
-        .a6S {
-            display: none !important;
-            opacity: 0.01 !important;
-        }
-        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
-        
-        .im {
-            color: inherit !important;
-        }
-        /* If the above doesn't work, add a .g-img class to any image in question. */
-        
-        img.g-img+div {
-            display: none !important;
-        }
-        /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
-        /* Create one of these media queries for each additional viewport size you'd like to fix */
-        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
-        
-        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
-            u~div .email-container {
-                min-width: 320px !important;
-            }
-        }
-        /* iPhone 6, 6S, 7, 8, and X */
-        
-        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
-            u~div .email-container {
-                min-width: 375px !important;
-            }
-        }
-        /* iPhone 6+, 7+, and 8+ */
-        
-        @media only screen and (min-device-width: 414px) {
-            u~div .email-container {
-                min-width: 414px !important;
+    <style type="text/css">
+        @media only screen and (max-device-width: 767px) {
+            table {
+                width: auto !important;
             }
         }
     </style>
-
-    <!-- CSS Reset : END -->
-
-    <!-- Progressive Enhancements : BEGIN -->
-    <style>
-        .primary {
-            background: #f3a333;
-        }
-        
-        .bg_white {
-            background: #ffffff;
-        }
-        
-        .bg_light {
-            background: #fafafa;
-        }
-        
-        .bg_black {
-            background: #000000;
-        }
-        
-        .bg_dark {
-            background: rgba(0, 0, 0, .8);
-        }
-        
-        .email-section {
-            padding: 2.5em;
-        }
-        /*BUTTON*/
-        
-        .btn {
-            padding: 10px 15px;
-        }
-        
-        .btn.btn-primary {
-            border-radius: 30px;
-            background: #00b8ea;
-            color: #ffffff;
-            padding: 0.75em 2.5em;
-        }
-        
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #000000;
-            margin-top: 0;
-        }
-        
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 1.8;
-            color: rgba(0, 0, 0, .4);
-        }
-        
-        a {
-            color: #f3a333;
-        }
-        
-        table {}
-        /*LOGO*/
-        
-        .logo h1 {
-            margin: 0;
-        }
-        
-        .logo h1 a {
-            color: #000;
-            font-size: 20px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        /*HERO*/
-        
-        .hero {
-            position: relative;
-        }
-        
-        .hero img {}
-        
-        .hero .text {
-            color: rgba(255, 255, 255, .8);
-        }
-        
-        .hero .text h2 {
-            font-size: 30px;
-            margin-bottom: 0;
-            line-height: 44px;
-            text-align: left;
-        }
-        /*HEADING SECTION*/
-        
-        .heading-section {}
-        
-        .heading-section h2 {
-            color: #000000;
-            font-size: 30px;
-            margin-top: 0;
-            line-height: 1.4;
-        }
-        
-        .heading-section .subheading {
-            margin-bottom: 20px !important;
-            display: inline-block;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(0, 0, 0, .4);
-            position: relative;
-        }
-        
-        .heading-section .subheading::after {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -10px;
-            content: '';
-            width: 100%;
-            height: 2px;
-            background: #f3a333;
-            margin: 0 auto;
-        }
-        
-        .heading-section-white {
-            color: rgba(255, 255, 255, .8);
-        }
-        
-        .heading-section-white h2 {
-            font-size: 30px;
-            padding-bottom: 0;
-        }
-        
-        .heading-section-white h2 {
-            color: #ffffff;
-        }
-        
-        .heading-section-white .subheading {
-            margin-bottom: 0;
-            display: inline-block;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, .4);
-        }
-        
-        .icon {
-            text-align: center;
-        }
-        
-        .icon img {}
-        /*SERVICES*/
-        
-        .text-services {
-            padding: 10px 10px 0;
-            text-align: center;
-        }
-        
-        .text-services h3 {
-            font-size: 20px;
-        }
-        /*BLOG*/
-        
-        .text-services .meta {
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-        /*TESTIMONY*/
-        
-        .text-testimony .name {
-            margin: 0;
-        }
-        
-        .text-testimony .position {
-            color: rgba(0, 0, 0, .3);
-        }
-        /*VIDEO*/
-        
-        .img {
-            width: 100%;
-            height: auto;
-            position: relative;
-        }
-        
-        .img .icon {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin-top: -25px;
-        }
-        
-        .img .icon a {
-            display: block;
-            width: 60px;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            margin-left: -25px;
-        }
-        /*COUNTER*/
-        
-        .counter-text {
-            text-align: center;
-        }
-        
-        .counter-text .num {
-            display: block;
-            color: #ffffff;
-            font-size: 34px;
-            font-weight: 700;
-        }
-        
-        .counter-text .name {
-            display: block;
-            color: rgba(255, 255, 255, .9);
-            font-size: 13px;
-        }
-        /*FOOTER*/
-        
-        .footer {
-            color: rgba(255, 255, 255, .5);
-        }
-        
-        .footer .heading {
-            color: #ffffff;
-            font-size: 20px;
-        }
-        
-        .footer ul {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .footer ul li {
-            list-style: none;
-            margin-bottom: 10px;
-        }
-        
-        .footer ul li a {
-            color: rgba(255, 255, 255, 1);
-        }
-        
-        @media screen and (max-width: 500px) {
-            .icon {
-                text-align: left;
-            }
-            .text-services {
-                padding-left: 0;
-                padding-right: 20px;
-                text-align: left;
-            }
-        }
-        /*new css*/
-        
-        .header {
-            height: 160px;
-            background-size: cover;
-        }
-        
-        .hero {
-            height: 500px;
-            text-align: left;
-        }
-        
-        .bg-blue-primary {
-            background-color: #d9eaed;
-        }
-        
-        .bg-blue-primary p {
-            color: #243b44;
-            text-align: left;
-            margin-bottom: 2em;
-            margin-top: 2em;
-        }
-        
-        .bg-blue-secondary {
-            background-color: #d9eaed;
-        }
-        
-        .bg-blue-footer {
-            background-color: #00b8e9;
-        }
-        
-        .bg-blue-footer p {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-        }
-        
-        .bg-blue-footer a {
-            color: #004662;
-            text-decoration: underline;
-        }
-        
-        .bg-blue-quarto {
-            background-color: #004890;
-        }
-        
-        .bg-blue-quarto p {
-            color: #ffffff;
-            text-align: left;
-            margin-bottom: 2em;
-            margin-top: 2em;
-        }
-        
-        .bg-white {
-            background-color: #ffffff;
-        }
-        
-        .bg-white p {
-            color: #243b44;
-            text-align: left;
-            margin-bottom: 2em;
-            margin-top: 2em;
-        }
-        
-        .bg-yellow-primary {
-            background-color: #ffdd00;
-        }
-        
-        .bg-yellow-primary p {
-            color: #3e3d44;
-            text-align: left;
-            margin-bottom: 2em;
-            margin-top: 2em;
-        }
-        
-        .color-blue-primary {
-            color: #00bbeb;
-        }
-        
-        .color-blue-secondary {
-            color: #113764;
-        }
-        
-        .color-blue-tertiary {
-            color: #153159;
-        }
-        
-        .color-white {
-            color: #ffffff;
-        }
-        
-        .bold {
-            font-weight: bold;
-        }
-        
-        .icon {
-            text-align: left;
-            margin-top: 1em;
-            margin-bottom: 1em;
-        }
-        
-        .footer p {
-            color: #ffffff;
-        }
-        
-        .bg-blue-quinto {
-            background: #dee9ed
-        }
-        
-        .text-blue-quarto {
-            color: #004890
-        }
-        
-        hr {
-            border: 1px solid #004890;
-            margin: 3em 0;
-        }
-        
-        a,
-        p {
-            font-size: 16px;
-            line-height: 1.375;
-        }
-        
-        .footer p,
-        .footer a {
-            font-size: 14px
-        }
-    </style>
-
-
 </head>
 
-<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #222222;">
-    <center style="width: 100%; background-color: #ffffff;">
-        <div style="display: none; font-size: 1px;max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-            &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
-        </div>
-        <div style="max-width: 500px; margin: 0 auto;" class="email-container">
-            <!-- BEGIN BODY -->
-            <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
-                <tr class="header" style="background-image: url('img/header.jpg');">
-                    <td class="logo" style="padding: 2em 2.5em 1em 2.5em; text-align: center">
-                        <h1><img width="160" src="img/logo.png"></h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="middle" class="hero bg-blue-primary">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="text" style="padding: 0 4em;">
-                                        <h2 class="color-blue-secondary">Less than a month to go until Connexia</h2>
-                                        <p class="bold">The event you’ve been awaiting for so long is fast approaching!</p>
-                                        <p>It’s time for final preparations for The rally and La vitrine.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="middle" class="hero bg-white">
-                        <table>
-                            <tr>
-                                <td>
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #ffffff;font-family: Arial, sans-serif;">
+    <table bgcolor="#ffffff" cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" style="border-collapse: collapse; margin: 0; padding: 0;">
+        <tr>
+            <td cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse: collapse;">
+                <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="500" style="margin: auto;">
+                    <tr class="header">
+                        <td style=" background-image: url( 'img/header.jpg'); height: 160px; background-size: cover; ">
+                            <img src="https://mails.bob.ca/assets/RONA-22-53/confirmation-marchand/header.jpg " width="500 " height="160 " style="display:block; margin: 0; padding: 0;max-width: 100%;height: auto; " alt="RONA connexia 2022 ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle " class="hero bg-blue-primary " style=" height: 500px; text-align: left; background-color: #d9eaed;  ">
+                            <table>
+                                <tr>
+                                    <td style="padding: 70px 60px 70px 60px;">
+                                        <div class="text ">
+                                            <h2 class="color-blue-secondary " style=" color: #113764; font-size: 30px; margin-bottom: 0; line-height: 44px; text-align: left; ">
+                                                Less than a month to go until Connexia</h2>
+                                            <p class="bold " style=" color: #243b44; font-size: 16px; font-weight: bold; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">
+                                                The event you’ve been awaiting for so long is fast approaching!</p>
+                                            <p style=" color: #243b44; font-size: 16px; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">
+                                                It’s time for final preparations for The rally and La vitrine.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle " class="hero bg-white ">
+                            <table>
+                                <tr>
+                                    <td style="padding: 70px 60px 70px 60px;">
+                                        <div class="text ">
+                                            <div class="icon "><img src="https://mails.bob.ca/assets/RONA-22-53/fournisseurs-phase2/arrow.png" width="50 "></div>
+                                            <h2 class="color-blue-primary " style=" color: #00bbeb; font-size: 30px; margin-bottom: 0; line-height: 44px; text-align: left;">What you need to know about the booths</h2>
+                                            <p style=" color: #243b44; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">Each of the exhibitors participating in the activities will benefit from a booth with some basic features.</p>
+                                            <p style=" color: #243b44; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">
+                                                <span style="font-weight: bold;">To make your booth stand out,</span> we suggest you incorporate your company colours and adapt it to your image by reaching out right away to LEVY SHOW, the booth materials
+                                                supplier.
+                                            </p>
+                                            <a class="bold color-blue-primary " style=" font-weight:bold; color: #00bbeb; ">
+                                                [coordonnées LEVY SHOW]</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle " class="hero bg-yellow-primary " style="background: #ffdd00;background-color: #ffdd00;">
+                            <table>
+                                <tr>
+                                    <td style="padding: 70px 60px 70px 60px;">
+                                        <div class="text">
+                                            <div class="icon "><img src="https://mails.bob.ca/assets/RONA-22-53/fournisseurs-phase2/icon-2.png" width="60 "></div>
+                                            <h2 class="color-blue-tertiary " style=" color: #153159; font-size: 30px; margin-bottom: 0; line-height: 44px; text-align: left;">Be seen more</h2>
+                                            <p style=" color: #3e3d44; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">To achieve even greater visibility at the event, please send us your logo.</p>
+                                            <p style=" color: #3e3d44; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">You must submit it via the Connexia platform before [date]</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle " class="hero bg-blue-quarto " style="background: #004890;background-color: #004890;">
+                            <table>
+                                <tr>
+                                    <td style="padding: 70px 60px 70px 60px;">
+                                        <div class="text">
+                                            <div class="icon "><img src="https://mails.bob.ca/assets/RONA-22-53/fournisseurs-phase2/home.png" width="60 "></div>
+                                            <h2 class="color-white " style=" color: #ffffff; font-size: 30px; margin-bottom: 0; line-height: 44px; text-align: left;">Have you booked your hotel?</h2>
+                                            <p style=" color: #ffffff; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">If you haven’t yet, don’t put it off.</p>
+                                            <p style=" color: #ffffff; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">You’ll find all the important information on your dashboard.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- se conncter -->
+                    <tr>
+                        <td valign="middle " class="hero bg-blue-quinto " style="background: #dee9ed;background-color: #dee9ed">
+                            <table>
+                                <tr>
+                                    <td style="padding: 70px 60px 70px 60px;">
+                                        <div class="text-blue-quarto">
+                                            <p style=" color: #004890; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; "><b>For more information </b> about the event, you can consult the platform at any time.</p>
+                                            <p style=" margin:4em 0">
+                                                <!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:50px;v-text-anchor:middle;width:210px;" arcsize="1" strokecolor="#00b8e9" fillcolor="#00b8e9">
+        <w:anchorlock/>
+        <center style="color:#FFFFFF;font-family: Arial, sans-serif;font-size: 15px;font-weight: 400;font-style: normal;">Login</center>
+    </v:roundrect>
+<![endif]-->
+                                                <!--[if !mso]><!-->
+                                                <a href="#" target="_blank" rel="noopener noreferrer" style="
+                                                display: inline-block;
+                                                background-color: #00b8ea;
+                                                padding: 17px 30px 15px 30px;
+                                                text-align: center;
+                                                border-radius: 999px;
+                                                color: #FFFFFF;
+                                                font-family: Arial, sans-serif;
+                                                font-size: 15px;
+                                                font-weight: 400;
+                                                font-style: normal;
+                                                letter-spacing: normal;
+                                                line-height: 1;
+                                                text-align: center;
+                                                text-decoration: none;
+                                            ">
+                                                Login
+                                            </a>
+                                                <!--<![endif]-->
+                                            </p>
+                                            <hr style="
+                                            border: 1px solid #004890;
+                                            margin: 3em 0;">
+                                            <p style=" color: #004890; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">Looking forward to seeing you soon!</p>
+                                            <p style=" color: #004890; text-align: left; line-height: 1.375; margin-bottom: 2em; margin-top: 2em; ">For any questions, please contact the concierge team at : <b>concierge@ronaconnexia.ca.</b> or (431) 244-4350.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- se conncter -->
 
-                                    <div class="text" style="padding: 4em 4em 2em 4em;">
-                                        <div class="icon"><img src="img/arrow.png" width="50"></div>
-                                        <h2 class="color-blue-primary">What you need to know about the booths</h2>
-                                        <p>Each of the exhibitors participating in the activities will benefit from a booth with some basic features.</p>
-                                        <p><span style="font-weight: bold;">To make your booth stand out,</span> we suggest you incorporate your company colours and adapt it to your image by reaching out right away to LEVY SHOW, the booth materials supplier.</p>
-                                        <a class="bold color-blue-primary">[coordonnées LEVY SHOW]</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="middle" class="hero bg-yellow-primary">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="text" style="padding:4em;">
-                                        <div class="icon"><img src="img/icon-2.png" width="60"></div>
-                                        <h2 class="color-blue-tertiary">Be seen more</h2>
-                                        <p>To achieve even greater visibility at the event, please send us your logo.</p>
-                                        <p>You must submit it via the Connexia platform before [date]</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td valign="middle" class="hero bg-blue-quarto">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="text" style="padding:4em;">
-                                        <div class="icon"><img src="https://res.cloudinary.com/niouz/image/upload/v1660043128/rona/home.png" width="60"></div>
-                                        <h2 class="color-white">Have you booked your hotel?</h2>
-                                        <p>If you haven’t yet, don’t put it off.</p>
-                                        <p>You’ll find all the important information on your dashboard.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <!-- se conncter -->
-                <tr>
-                    <td valign="middle" class="hero bg-blue-quinto">
-                        <table>
-                            <tr>
-                                <td>
-                                    <div class="text-blue-quarto" style="padding:3em 4em;">
-                                        <p><b>For more information </b> about the event, you can consult the platform at any time.</p>
-                                        <div style="margin:4em 0"><a href="#" class="btn btn-primary">Login</a></div>
-                                        <hr>
-                                        <p>Looking forward to seeing you soon!</p>
-                                        <p>For any questions, please contact the concierge team at : <b>concierge@ronaconnexia.ca.</b> or (431) 244-4350.</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <!--/ se conncter -->
-
-                <!-- footer -->
-                <tr>
-                    <td class="bg_white">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                            <tr>
-                                <td class="bg-blue-footer footer email-section" style="text-align:center;padding:70px">
-                                    <div class="heading-section heading-section-white">
-                                        <div style="margin-bottom:20px"><img width="250" src="img/logo-footer.png"></div>
-                                        <p>&copy; LOWE'S CANADA 2022, All rights reserved<br> 220, chemin du Tremblay, Boucherville (Québec), J4B 8H7, Canada</p>
-                                        <div style="margin-top:20px"><a href="#">Email not displaying correctly?</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <!--/ footer -->
-            </table>
-        </div>
-    </center>
+                    <!-- footer -->
+                    <tr>
+                        <td class="bg_white " style="background: #00b8e9;background-color: #00b8e9; ">
+                            <table role="presentation " cellspacing="0 " cellpadding="0 " border="0 " width="100% ">
+                                <tr>
+                                    <td class="bg-blue-footer footer email-section " style="text-align:center; padding: 70px 60px 70px 60px;">
+                                        <div class="heading-section heading-section-white ">
+                                            <div style="margin-bottom:20px "><img width="250 " src="https://mails.bob.ca/assets/RONA-22-53/fournisseurs-phase2/logo-footer.png"></div>
+                                            <p style="
+                                                margin-top: 0.5em;
+                                                margin-bottom: 0.5em;
+                                                color: #ffffff;
+                                                font-size: 14px;
+                                                ">&copy; LOWE'S CANADA 2022, All rights reserved<br> 220, chemin du Tremblay, Boucherville (Québec), J4B 8H7, Canada</p>
+                                            <div style="margin-top:20px ">
+                                                <a style="
+                                                font-size: 14px;
+                                                color: #004662;
+                                                text-decoration: underline;" href="# ">Email not displaying correctly?</a></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--/ footer -->
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>
